@@ -1,5 +1,6 @@
 package com.example.signup_login.global.error.filter;
 
+import com.example.signup_login.global.error.ErrorResponse;
 import com.example.signup_login.global.error.exception.DalgonaException;
 import com.example.signup_login.global.error.exception.GlobalErrorCode;
 import com.fasterxml.jackson.databind.ObjectMapper;
