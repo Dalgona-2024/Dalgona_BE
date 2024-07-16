@@ -26,12 +26,14 @@ public enum GlobalErrorCode {
     REFRESH_TOKEN_NOT_FOUND(404, "RefreshToken Not Found"),
     CATEGORY_NOT_FOUND(404, "Category Not Found"),
     USER_AUTH_CODE_NOT_FOUND(404, "User AuthCode Not Found"),
+    QUIZ_NOT_FOUND(404, "Quiz Not Found"),
 
 
     // 409
     ALREADY_USER_EXIST(409, "Already User Exist"),
     ALREADY_NICKNAME_EXIST(409, "Already Nickname Exist"),
     ALREADY_AUTH_CODE_EXIST(409, "Already Auth Code Exist"),
+    CONFLICT_EXCEPTION(409, "CONFLICT_EXCEPTION"),
 
     // 500
     INTERNAL_SERVER_ERROR(500, "Internal Server Error");

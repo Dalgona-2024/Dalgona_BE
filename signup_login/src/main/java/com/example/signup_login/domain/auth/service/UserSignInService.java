@@ -1,7 +1,7 @@
 package com.example.signup_login.domain.auth.service;
 
 import com.example.signup_login.domain.auth.exception.PasswordMisMatchException;
-import com.example.signup_login.domain.auth.presentation.dto.requeust.UserSignInRequest;
+import com.example.signup_login.domain.auth.presentation.dto.request.UserSignInRequest;
 import com.example.signup_login.domain.auth.presentation.dto.response.UserTokenResponse;
 import com.example.signup_login.domain.user.entity.User;
 import com.example.signup_login.domain.user.entity.UserRepository;

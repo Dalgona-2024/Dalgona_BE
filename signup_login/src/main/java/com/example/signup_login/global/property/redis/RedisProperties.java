@@ -1,7 +1,6 @@
 package com.example.signup_login.global.property.redis;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
