@@ -2,7 +2,7 @@ package com.example.signup_login.domain.auth.service;
 
 import com.example.signup_login.domain.auth.presentation.dto.request.UserSignUpRequest;
 import com.example.signup_login.domain.user.entity.User;
-import com.example.signup_login.domain.user.entity.UserRepository;
+import com.example.signup_login.domain.user.entity.repository.UserRepository;
 import com.example.signup_login.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

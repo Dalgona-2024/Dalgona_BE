@@ -4,7 +4,7 @@ import com.example.signup_login.domain.auth.exception.PasswordMisMatchException;
 import com.example.signup_login.domain.auth.presentation.dto.request.UserSignInRequest;
 import com.example.signup_login.domain.auth.presentation.dto.response.UserTokenResponse;
 import com.example.signup_login.domain.user.entity.User;
-import com.example.signup_login.domain.user.entity.UserRepository;
+import com.example.signup_login.domain.user.entity.repository.UserRepository;
 import com.example.signup_login.global.exception.UserNotFoundException;
 import com.example.signup_login.global.security.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;

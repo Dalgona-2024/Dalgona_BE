@@ -1,6 +1,6 @@
 package com.example.signup_login.global.security.auth;
 
-import com.example.signup_login.domain.user.entity.UserRepository;
+import com.example.signup_login.domain.user.entity.repository.UserRepository;
 import com.example.signup_login.global.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;

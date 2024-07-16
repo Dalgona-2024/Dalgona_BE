@@ -1,5 +1,6 @@
-package com.example.signup_login.domain.user.entity;
+package com.example.signup_login.domain.user.entity.repository;
 
+import com.example.signup_login.domain.user.entity.User;
 import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
