@@ -9,6 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 public class QueryQuizListResponse {
     private final List<QuizResponse> quiz;
+    private final Long difficulty;
 
     @Getter
     @AllArgsConstructor

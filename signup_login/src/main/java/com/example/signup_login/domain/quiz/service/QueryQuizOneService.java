@@ -7,6 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class QueryQuizOneService {
@@ -14,10 +17,10 @@ public class QueryQuizOneService {
 
     @Transactional(readOnly = true)
     public QueryQuizListResponse execute(Category category) {
-        return new QueryQuizListResponse(
-                quizRepository.findDiffOneByCategoryAndRandom(category).stream()
-                        .map(quiz -> new QueryQuizListResponse.QuizResponse(quiz.getId(), quiz.getContent()))
-                        .toList()
-        );
+        List<QueryQuizListResponse.QuizResponse> quizResponses = quizRepository.findDiffThreeByCategoryAndRandom(category).stream()
+                .map(quiz -> new QueryQuizListResponse.QuizResponse(quiz.getId(), quiz.getContent()))
+                .collect(Collectors.toList());
+
+        return new QueryQuizListResponse(quizResponses, 1L);
     }
 }
