@@ -1,5 +1,6 @@
 package com.example.signup_login.domain.user.service;
 
+import com.example.signup_login.domain.quiz.entity.Category;
 import com.example.signup_login.domain.user.entity.Dalgona;
 import com.example.signup_login.domain.user.entity.User;
 import com.example.signup_login.domain.user.entity.repository.DalgonaRepository;
@@ -15,9 +16,9 @@ public class GetDalgonaService {
     private final DalgonaRepository dalgonaRepository;
 
     @Transactional(readOnly = true)
-    public void execute() {
+    public void execute(Category category) {
         User user = userFacade.getCurrentUser();
 
-        dalgonaRepository.save(new Dalgona(user));
+        dalgonaRepository.save(new Dalgona(user, category));
     }
 }

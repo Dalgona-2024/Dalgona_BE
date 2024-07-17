@@ -25,7 +25,7 @@ public class Quiz {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "VARCHAR(8)")
+    @Column(columnDefinition = "VARCHAR(1000)")
     private Category category;
 
     @NotNull
