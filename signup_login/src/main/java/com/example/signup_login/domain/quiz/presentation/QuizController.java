@@ -3,7 +3,6 @@ package com.example.signup_login.domain.quiz.presentation;
 import com.example.signup_login.domain.quiz.entity.Category;
 import com.example.signup_login.domain.quiz.presentation.dto.request.QuizRequest;
 import com.example.signup_login.domain.quiz.presentation.dto.response.AnswerResponse;
-import com.example.signup_login.domain.quiz.presentation.dto.response.QueryPickResponse;
 import com.example.signup_login.domain.quiz.presentation.dto.response.QueryQuizListResponse;
 import com.example.signup_login.domain.quiz.presentation.dto.response.SavedQuizListResponse;
 import com.example.signup_login.domain.quiz.service.*;
