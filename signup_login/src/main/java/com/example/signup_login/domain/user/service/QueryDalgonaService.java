@@ -1,6 +1,7 @@
 package com.example.signup_login.domain.user.service;
 
 import com.example.signup_login.domain.user.entity.User;
+import com.example.signup_login.domain.user.entity.repository.DalRepository;
 import com.example.signup_login.domain.user.entity.repository.DalgonaRepository;
 import com.example.signup_login.domain.user.facade.UserFacade;
 import com.example.signup_login.domain.user.presentation.dto.response.QueryDalgonaListResponse;
