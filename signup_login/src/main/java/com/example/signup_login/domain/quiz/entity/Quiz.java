@@ -20,8 +20,8 @@ public class Quiz {
     private Long id;
 
     @NotNull
-    @Column(columnDefinition = "INT")
-    private Long answer;
+    @Column(columnDefinition = "TINYINT(1)")
+    private Boolean answer;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -40,7 +40,7 @@ public class Quiz {
     @Column(columnDefinition = "INT")
     private Long difficulty;
 
-    public Quiz(Long answer, Category category, String commentation, String content, Long difficulty) {
+    public Quiz(Boolean answer, Category category, String commentation, String content, Long difficulty) {
         this.answer = answer;
         this.category = category;
         this.commentation = commentation;

@@ -17,6 +17,6 @@ public class SavedQuizListResponse {
         private final Long id;
         private final String content;
         private final Category category;
-        private final Long answer;
+        private final Boolean answer;
     }
 }
