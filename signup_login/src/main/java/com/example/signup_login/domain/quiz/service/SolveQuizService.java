@@ -1,10 +1,10 @@
 package com.example.signup_login.domain.quiz.service;
 
-import com.example.signup_login.domain.quiz.entity.Pick;
 import com.example.signup_login.domain.quiz.entity.Quiz;
+import com.example.signup_login.domain.quiz.entity.UserQuiz;
 import com.example.signup_login.domain.quiz.entity.WrongQuiz;
-import com.example.signup_login.domain.quiz.entity.repository.PickRepository;
 import com.example.signup_login.domain.quiz.entity.repository.QuizRepository;
+import com.example.signup_login.domain.quiz.entity.repository.UserQuizRepository;
 import com.example.signup_login.domain.quiz.entity.repository.WrongQuizRepository;
 import com.example.signup_login.domain.quiz.exception.QuizNotFoundException;
 import com.example.signup_login.domain.quiz.presentation.dto.request.QuizRequest;
@@ -21,20 +21,23 @@ public class SolveQuizService {
     private final QuizRepository quizRepository;
     private final UserFacade userFacade;
     private final WrongQuizRepository wrongQuizRepository;
-    private final PickRepository pickRepository;
+    private final UserQuizRepository userQuizRepository;
 
     @Transactional
     public AnswerResponse execute(Long quizId, QuizRequest request) {
         User user = userFacade.getCurrentUser();
         Quiz quiz = quizRepository.findById(quizId)
                 .orElseThrow(() -> QuizNotFoundException.EXCEPTION);
-        Pick pick = pickRepository.findById(request.getPickId())
-                .orElseThrow(() -> QuizNotFoundException.EXCEPTION);
+        boolean isCorrect = quiz.getAnswer().equals(request.getPick());
 
-        wrongQuizRepository.save(new WrongQuiz(quiz, pick, user));
+        wrongQuizRepository.save(new WrongQuiz(quiz, request.getPick(), user));
+
+        if (!isCorrect) {
+            userQuizRepository.save(new UserQuiz(user, quiz));
+        }
 
         return AnswerResponse.builder()
-                .answer(quiz.getAnswer().equals(request.getPickId()))
+                .answer(isCorrect)
                 .commentation(quiz.getCommentation())
                 .build();
     }

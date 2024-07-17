@@ -15,6 +15,8 @@ public class WrongQuiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Boolean pick;
+
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "quiz_id")
@@ -22,16 +24,11 @@ public class WrongQuiz {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pick_id")
-    private Pick pick;
-
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
     @Builder
-    public WrongQuiz(Quiz quiz, Pick pick, User user) {
+    public WrongQuiz(Quiz quiz, Boolean pick, User user) {
         this.quiz = quiz;
         this.pick = pick;
         this.user = user;

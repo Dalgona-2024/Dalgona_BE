@@ -20,8 +20,6 @@ public class QuizController {
     private final QueryQuizOneService queryQuizOneService;
     private final QueryQuizTwoService queryQuizTwoService;
     private final QueryQuizThreeService queryQuizThreeService;
-    private final QueryPickService queryPickService;
-    private final UserQuizService userQuizService;
     private final SavedQuizService savedQuizService;
 
     @GetMapping
@@ -43,17 +41,6 @@ public class QuizController {
     @PostMapping("/{quiz-id}")
     public AnswerResponse solveQuiz(@PathVariable("quiz-id") Long quizId, @RequestBody @Valid QuizRequest request) {
         return solveQuizService.execute(quizId, request);
-    }
-
-    @GetMapping("/pick/{quiz-id}")
-    public QueryPickResponse getPick(@PathVariable("quiz-id") Long quizId) {
-        return queryPickService.execute(quizId);
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/user/{quiz-id}")
-    public void saveUserQuiz(@PathVariable("quiz-id") Long quizId) {
-        userQuizService.execute(quizId);
     }
 
     @GetMapping("/saved")
