@@ -5,10 +5,13 @@ import com.example.signup_login.domain.user.entity.Dalgona;
 import com.example.signup_login.domain.user.entity.User;
 import com.example.signup_login.domain.user.entity.repository.DalRepository;
 import com.example.signup_login.domain.user.entity.repository.DalgonaRepository;
+import com.example.signup_login.domain.user.exception.AlreadyDalgonaExistsException;
 import com.example.signup_login.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -21,8 +24,8 @@ public class GetDalgonaService {
     public void execute(Category category) {
         User user = userFacade.getCurrentUser();
 
-        if (dalgonaRepository.findByUserAndCategory(user, category)) {
-            throw new IllegalStateException("Dalgona already exists for the given user and category.");
+        if (dalgonaRepository.existsByUserAndCategory(user, category)) {
+            throw AlreadyDalgonaExistsException.EXCEPTION;
         }
 
         dalgonaRepository.save(new Dalgona(user, category, dalRepository));

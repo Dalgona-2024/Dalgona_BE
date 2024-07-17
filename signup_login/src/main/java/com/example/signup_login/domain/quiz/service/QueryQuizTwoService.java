@@ -17,7 +17,7 @@ public class QueryQuizTwoService {
 
     @Transactional(readOnly = true)
     public QueryQuizListResponse execute(Category category) {
-        List<QueryQuizListResponse.QuizResponse> quizResponses = quizRepository.findDiffThreeByCategoryAndRandom(category).stream()
+        List<QueryQuizListResponse.QuizResponse> quizResponses = quizRepository.findDiffTwoByCategoryAndRandom(category).stream()
                 .map(quiz -> new QueryQuizListResponse.QuizResponse(quiz.getId(), quiz.getContent()))
                 .collect(Collectors.toList());
 

@@ -32,6 +32,7 @@ public enum GlobalErrorCode {
     // 409
     ALREADY_USER_EXIST(409, "Already User Exist"),
     ALREADY_NICKNAME_EXIST(409, "Already Nickname Exist"),
+    AlREADY_DALGONA_EXIST(409, "Already Dalgona Exist"),
     ALREADY_AUTH_CODE_EXIST(409, "Already Auth Code Exist"),
     CONFLICT_EXCEPTION(409, "CONFLICT_EXCEPTION"),
 
