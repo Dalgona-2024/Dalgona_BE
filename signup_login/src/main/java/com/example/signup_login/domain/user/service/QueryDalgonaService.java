@@ -20,7 +20,7 @@ public class QueryDalgonaService {
 
         return new QueryDalgonaListResponse(
                 dalgonaRepository.findByUser(user).stream()
-                        .map(dalgona -> new QueryDalgonaListResponse.DalgonaResponse(dalgona.getId(), dalgona.getDalContent()))
+                        .map(dalgona -> new QueryDalgonaListResponse.DalgonaResponse(dalgona.getCategory(), dalgona.getDalContent()))
                         .toList()
         );
     }

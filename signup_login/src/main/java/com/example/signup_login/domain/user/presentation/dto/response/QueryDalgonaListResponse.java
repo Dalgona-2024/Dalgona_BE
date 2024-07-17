@@ -1,5 +1,6 @@
 package com.example.signup_login.domain.user.presentation.dto.response;
 
+import com.example.signup_login.domain.quiz.entity.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,7 +14,7 @@ public class QueryDalgonaListResponse {
     @Getter
     @AllArgsConstructor
     public static class DalgonaResponse {
-        private final Long id;
-        private final String dalContent;
+        private final Category category;
+        private final String dal_content;
     }
 }
