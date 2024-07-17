@@ -19,7 +19,7 @@ public class SavedQuizService {
 
         return new SavedQuizListResponse(
                 userQuizRepository.findByUser(user).stream()
-                        .map(saved -> new SavedQuizListResponse.SavedQuizResponse(saved.getQuiz().getId(), saved.getQuiz().getContent(), saved.getQuiz().getCategory(), saved.getQuiz().getAnswer()))
+                        .map(saved -> new SavedQuizListResponse.SavedQuizResponse(saved.getQuiz().getId(), saved.getQuiz().getContent(), saved.getQuiz().getCategory(), saved.getQuiz().getDifficulty(), saved.getQuiz().getAnswer()))
                         .toList()
         );
     }

@@ -17,7 +17,7 @@ public class GetDalgonaService {
     private final DalgonaRepository dalgonaRepository;
     private final DalRepository dalRepository;
 
-    @Transactional(readOnly = true)
+    @Transactional
     public void execute(Category category) {
         User user = userFacade.getCurrentUser();
 
