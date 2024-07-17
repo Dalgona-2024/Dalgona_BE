@@ -21,6 +21,10 @@ public class GetDalgonaService {
     public void execute(Category category) {
         User user = userFacade.getCurrentUser();
 
+        if (dalgonaRepository.findByUserAndCategory(user, category)) {
+            throw new IllegalStateException("Dalgona already exists for the given user and category.");
+        }
+
         dalgonaRepository.save(new Dalgona(user, category, dalRepository));
     }
 }

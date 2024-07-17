@@ -5,10 +5,10 @@ import com.example.signup_login.domain.user.entity.Dalgona;
 import com.example.signup_login.domain.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface DalgonaRepository extends JpaRepository<Dalgona, Long> {
-    Optional<Dalgona> findByUser(User user);
+    List<Dalgona> findByUser(User user);
 
-    Optional<Dalgona> findByCategory(Category category);
+    Boolean findByUserAndCategory(User user, Category category);
 }
