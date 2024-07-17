@@ -42,7 +42,7 @@ public class QuizController {
         return solveQuizService.execute(quizId, request);
     }
 
-    @GetMapping("/saved")
+    @GetMapping("/wrong")
     public SavedQuizListResponse getSavedQuizzes() {
         return savedQuizService.execute();
     }
