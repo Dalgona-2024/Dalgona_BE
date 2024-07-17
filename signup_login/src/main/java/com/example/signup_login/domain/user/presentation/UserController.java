@@ -1,8 +1,10 @@
 package com.example.signup_login.domain.user.presentation;
 
 import com.example.signup_login.domain.quiz.entity.Category;
+import com.example.signup_login.domain.user.presentation.dto.response.MypageResponse;
 import com.example.signup_login.domain.user.presentation.dto.response.QueryDalgonaListResponse;
 import com.example.signup_login.domain.user.service.GetDalgonaService;
+import com.example.signup_login.domain.user.service.MypageService;
 import com.example.signup_login.domain.user.service.QueryDalgonaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final GetDalgonaService getDalgonaService;
     private final QueryDalgonaService queryDalgonaService;
+    private final MypageService mypageService;
     @PostMapping("/dalgona")
     public void getDalgona(@RequestParam("category") Category category) {
         getDalgonaService.execute(category);
@@ -21,5 +24,10 @@ public class UserController {
     @GetMapping("/dalgona/all")
     public QueryDalgonaListResponse getAllDalgona() {
         return queryDalgonaService.execute();
+    }
+
+    @GetMapping("/mypage")
+    public MypageResponse getMypage() {
+        return mypageService.execute();
     }
 }
